@@ -7,9 +7,6 @@ module.exports = function (request, reply) {
     return db.Orders.query((qb) => {
       qb.where('customer_id', id)
     }).fetchAll()
-  }).then((model) => {
-    reply(model)
-  }).catch((err) => {
-    errHandler.resolve(request, reply, err)
-  })
+  }).then(order => reply(order))
+    .catch(err => errHandler.resolve(request, reply, err))
 }

@@ -16,9 +16,10 @@ const knex = require('knex')({
 
 const bookshelf = require('bookshelf')(knex)
 
-bookshelf.plugin(require('registry'))
-bookshelf.plugin(require('visibility'))
+bookshelf.plugin('registry')
+bookshelf.plugin('visibility')
 bookshelf.plugin(require('bookshelf-paranoia'))
+
 bookshelf.Customers = require('./../shared/customers/model')(bookshelf)
 bookshelf.Orders = require('./../shared/orders/model')(bookshelf)
 
